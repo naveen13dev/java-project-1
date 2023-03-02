@@ -1,5 +1,8 @@
 pipeline{
     agent none
+    tools{
+    maven 'maven'
+    }
     environment{
         PATH = "/usr/bin/:$PATH"
     }
@@ -15,7 +18,7 @@ pipeline{
             agent {label 'node1'}
             steps{
                 unstash 'source'
-                sh "clean install"
+                sh "mvn clean install"
             }
         }
     }
