@@ -8,11 +8,13 @@ pipeline{
             agent {label 'node1'}
             steps{
                 git branch: 'main', url: 'https://github.com/naveen13dev/onlinebookstore.git'
+            stash 'source'
             }
         }
         stage('BUILD'){
             agent {label 'node1'}
             steps{
+                unstash 'source'
                 sh "mvn clean install"
             }
         }
