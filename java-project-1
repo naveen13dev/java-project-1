@@ -1,5 +1,7 @@
 pipeline{
     agent none
+    environment{
+        PATH = "/usr/bin/"
     stages{
         stage('git clone'){
             agent {label 'node1'}
