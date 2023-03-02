@@ -15,7 +15,7 @@ pipeline{
             agent {label 'node1'}
             steps{
                 unstash 'source'
-                sh "mvn clean install"
+                sh "clean install"
             }
         }
     }
