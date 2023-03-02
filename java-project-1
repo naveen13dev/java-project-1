@@ -7,5 +7,13 @@ pipeline{
                 git branch: 'main', url: 'https://github.com/naveen13dev/onlinebookstore.git'
             }
         }
+        stage('BUILD'){
+            agent label 'node1'
+            steps{
+                sh '''
+                mvn clean install
+                '''
+            }
+        }
     }
 }
