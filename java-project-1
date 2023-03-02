@@ -12,10 +12,8 @@ pipeline{
         stage('BUILD'){
             agent {label 'node1'}
             steps{
-                sh '''
-                mvn clean install
-                '''
+                sh "mvn clean install"
             }
         }
     }
-}    
+}
